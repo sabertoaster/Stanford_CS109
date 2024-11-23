@@ -1,0 +1,309 @@
+<!--
+	A template used for every page - contains the header, nav bar, a container div, and the footer.
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/img/stanford-favicon.png" type="image/x-icon">
+		<title>CS109  | Schedule</title>
+
+		<!-- CSS -->
+		<!-- Bootstrap 3
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    -->
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <!-- needed for Bootstrap 4 glyphicon migration: sub glyphicon glyphicon- with fa fa- -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="https://web.stanford.edu/class/archive/cs/cs109/cs109.1232/css/style_sept26.css" />
+
+		<!-- JavaScript -->
+    <!--
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/js/moment.min.js"></script>
+		<script src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/js/moment-timezone.js"></script>
+		<script type="text/javascript" src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/js/index.js"></script>
+
+    <!-- Python highlighting -->
+    <script src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/plugins/prism/prism.js"></script>
+    <link href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/plugins/prism/prism.css" rel="stylesheet" />
+
+    <!-- Probability Packages -->
+    <script src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/plugins/probability/gaussian.js"></script>
+    <script src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/plugins/color.js"></script>
+
+		<!-- Stanford -->
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css' />
+		<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css' />
+
+    <!-- Math Jax -->
+	    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    
+    <script src="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/plugins/math.min.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <!-- SWAL -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+   
+
+    <!-- Math plot -->
+
+ <script>
+ 	const monthNames = ["Jan", "Feb", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+</script>
+
+    <!-- Table of Contents -->
+    <!-- add after bootstrap.min.css -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css" />
+    <!-- add after bootstrap.min.js -->
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+
+	</head>
+
+<!-- I declare a few math operators I often use in equations -->
+<div style="display:none">
+  $\DeclareMathOperator{\p}{Pr}$
+  $\DeclareMathOperator{\P}{Pr}$
+  $\DeclareMathOperator{\c}{^C}$
+  $\DeclareMathOperator{\or}{  or}$
+  $\DeclareMathOperator{\and}{  and}$
+  $\DeclareMathOperator{\var}{Var}$
+  $\DeclareMathOperator{\E}{E}$
+  $\DeclareMathOperator{\std}{Std}$
+  $\DeclareMathOperator{\Ber}{Bern}$
+  $\DeclareMathOperator{\Bin}{Bin}$
+  $\DeclareMathOperator{\Poi}{Poi}$
+  $\DeclareMathOperator{\Uni}{Uni}$
+  $\DeclareMathOperator{\Exp}{Exp}$
+  $\DeclareMathOperator{\N}{N}$
+  $\DeclareMathOperator{\R}{\mathbb{R}}$
+  $\newcommand{\d}{\, d}$
+  
+</div>
+  <body data-spy="scroll" data-target="#toc" class="greyBackground"></body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-lg">
+  <a class="navbar-brand" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/">CS109</a>
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- Course dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Course
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+          
+
+
+         <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/syllabus.html">Syllabus</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/honorCode.html">Honor Code</a>
+
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/officehours.html">Office Hours</a>
+
+          <hr/>
+
+           <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/challenge.html">Challenge</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/exams/midterm.html">Midterm</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/exams/final.html">Final</a>
+        
+      <!-- Assignments / Problem Sets dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Problem Sets
+        </a>
+        <div class="dropdown-menu" aria-labelledby="assignmentsDropdown">
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset1/">1. Counting</a>
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset2/">2. Core Probability</a>
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset3/">3. Random Variables</a>
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset4/">4. Probabilistic Models</a>
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset5/">5. Uncertainty Theory</a>
+         <a class="dropdown-item" href="https://cs109psets.netlify.app/fall22/pset6/">6. Machine Learning</a>
+      </li>
+
+      <!-- Lecture dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="sectionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lecture
+        </a>
+        <div class="dropdown-menu" aria-labelledby="sectionsDropdown">
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/1-Welcome" class="dropdown-item" >1. Welcome</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/2-Combinatorics" class="dropdown-item" >2. Combinatorics</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/3-IntroProbability" class="dropdown-item" >3. Probability</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/4-ConditioningAndBayes" class="dropdown-item" >4. Conditioning and Bayes</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/5-Independence" class="dropdown-item" >5. Independence</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/6-RandomVariables" class="dropdown-item" >6. Random Variables</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/7-BernoulliBinomial" class="dropdown-item" >7. Binomial</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/8-Poisson" class="dropdown-item" >8. Poisson</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/9-Continuous" class="dropdown-item" >9. Continuous</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/10-Gaussian" class="dropdown-item" >10. Gaussian</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/11-ProbabilisticModels" class="dropdown-item" >11. Probabilistic Models</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/12-Inference" class="dropdown-item" >12. Inference</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/13-Inference2" class="dropdown-item" >13. Inference Part 2</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/14-Modeling" class="dropdown-item" >14. Modeling</a>
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/15-GeneralInference" class="dropdown-item" >15. General Inference</a>  
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/16-Beta" class="dropdown-item" >16. Beta</a>  
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/17-Adding" class="dropdown-item" >17. Adding Variables</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/18-Sampling" class="dropdown-item" >18. Sampling Statistics</a>   
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/19-Bootstrapping" class="dropdown-item" >19. Bootstrapping</a>   
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/20-AlgorithmAnalysis" class="dropdown-item" >20. Algorithm Analysis</a>
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/21-MaximumLikelihoodEstimation" class="dropdown-item" >21. Maximum Likelihood Estimation</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/22-MaximumAPosteriori" class="dropdown-item" >22. Maximum A Posteriori</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/23-NaiveBayes" class="dropdown-item" >23. Naive Bayes</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/24-LogisticRegression" class="dropdown-item" >24. Logistic Regression</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/25-DeepLearning" class="dropdown-item" >25. Deep Learning</a>
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/26-Ethics" class="dropdown-item" >26. Ethics</a> 
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/27-DallEGPT" class="dropdown-item" >27. DallE and GPT</a>
+          <a href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/lectures/28-Future" class="dropdown-item" >28. Your Future</a>
+      </li>
+
+      <!-- Section dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="sectionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Section
+        </a> 
+        <div class="dropdown-menu" aria-labelledby="sectionsDropdown">
+        
+           <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/1/">Section 1</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/2/">Section 2</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/3/">Section 3</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/4/">Section 4</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/5/">Section 5</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/6/">Section 6</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/7/">Section 7</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/8/">Section 8</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/section/9/">Section 9</a> 
+          <hr/><a class="dropdown-item" href="https://forms.gle/Q8qqDZfK7qZTJWVK9">Reassignment Form</a>
+      </li>
+
+      <!-- Resources dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="sectionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Resources
+        </a> 
+        <div class="dropdown-menu" aria-labelledby="sectionsDropdown">
+          <a target="_blank" class="dropdown-item" href="https://chrispiech.github.io/probabilityForComputerScientists/en/">Course Reader</a>
+          <a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/python.html">Python Review</a>
+<a class="dropdown-item" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/handouts/latex/">Latex Cheat Sheet</a>
+
+<a class="dropdown-item" href="https://canvas.stanford.edu/courses/158497/external_tools/3367">Video Recordings</a> 
+
+<a class="dropdown-item" href="https://drive.google.com/drive/folders/1Ff5awaJv-ntsPDFcgHkdi6Swmt3Iemrw?usp=sharing">CS109A Resources</a> 
+
+
+
+          
+      </li>
+
+      
+     
+    </ul>
+
+    <ul class="navbar-nav navbar-right">
+
+      <!--	<li class="nav-item ">
+            <a class="nav-link" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/stanford/staff.html">
+              <i class="fas fa-clock-o"></i> Section / Office Hours </a>
+                </li> -->
+      
+      <li class="nav-item ">
+            <a class="nav-link" href="//web.stanford.edu/class/archive/cs/cs109/cs109.1232/schedule.html">
+              <i class="fas fa-th-large"></i> Schedule </a>
+          </li>
+    </ul>
+
+  </div>
+</div>
+</nav>
+		<div class="container">
+			
+			
+<div class="container-fluid">
+      
+    <!-- Header -->
+    <div class="row handoutRow">
+       
+      <div class="col handout">
+        <div class="pb-2 mt-4 mb-2 border-bottom">
+          <h1>
+            PSet 5: Uncertainty Theory
+            <p class="subtleHeading">Due: Mon, Nov 15th 1pm</p>
+          </h1>
+        </div>
+
+        
+        <div class="alert alert-primary">
+            <b>Errata:</b> (Nov 8th) On problem 2(d) the original values produced a zero probability (not very helpful for learning). We changed the range to be 69.5 to 70.5. We will still give full credit if you solve the original problem, but encourage you to use the updated numbers.
+        </div>
+        
+        
+
+        <h3>Pset Files</h3>
+
+        <p>
+          <div class="row">
+            <div class="col-sm-3 text-center">
+              <a target="_blank" href="pset5.pdf">
+                <i class="far fa-file-pdf" aria-hidden="true" style="font-size: 5em;"></i>
+                <br /><br />
+                <span>Problem Set</span>
+              </a>
+            </div>
+            <div class="col-sm-3 text-center">
+              <a target="_blank" href="pset5.zip">
+                <i class="fas fa-database" aria-hidden="true" style="font-size: 5em;"></i>
+                <br /><br />
+                <span>Dataset</span>
+              </a>
+            </div>
+
+            <div class="col-sm-3 text-center">
+              <a target="_blank" href="https://www.overleaf.com/read/dnmtnspmqywn">
+                <i class="fas fa-paragraph" aria-hidden="true" style="font-size: 5em;"></i>
+                <br /><br />
+                <span>LaTex</span>
+              </a>
+            </div>
+            <div class="col-sm-3 text-center">
+              <a target="_blank" href="https://www.gradescope.com/courses/316804">
+                <i class="fas fa-paper-plane" aria-hidden="true" style="font-size: 5em;"></i>
+                <br /><br />
+                <span>Submit</span>
+              </a>
+            </div>
+          </div>
+        </p>
+        
+			</div>
+		</div>
+
+</div> <!-- container -->
+
+			
+      <!--%include templates/parts/footer.ptl-->
+		</div>
+	</body>
+</html>
